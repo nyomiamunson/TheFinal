@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using TMPro;
 
 public class Movement : MonoBehaviour
 {
     public float playerSpeed = 5f;
-    public float jumpForce = 10f; // Adjust this value to control the jump height
-    Rigidbody2D rb;
-    Animator animator;
+    public float jumpForce = 10f;
 
-    // Reference to the camera
-    public Camera mainCamera;
+    private Rigidbody2D rb;
+    private Animator animator;
+    public AttemptsScript attemptsController; // Reference to the AttemptsScript component
+
+    public Camera mainCamera; // Reference to the camera
 
     private void Start()
     {
@@ -56,6 +58,12 @@ public class Movement : MonoBehaviour
         {
             // Restart the game
             RestartGame();
+
+            // Increment the attempts count
+            if (attemptsController != null)
+            {
+                attemptsController.Attempts();
+            }
         }
     }
 
