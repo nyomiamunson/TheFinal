@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f;
-    public float jump = 5f;
-    public float rotationSpeed = 180f; // Adjust this value to control the rotation speed
+    public float speed;
+    public float jump;
 
     private Rigidbody2D rb;
     private Animator animator;
@@ -25,54 +24,30 @@ public class PlayerMovement : MonoBehaviour
             mainCamera = Camera.main;
     }
 
-    void FixedUpdate()
+    void Update()
     {
         // Move the player to the right automatically
-        transform.Translate(Vector2.right * speed * Time.fixedDeltaTime);
-
-        // Rotate the player based on the movement direction
-        if (transform.position.x > 0)
-        {
-            transform.rotation = Quaternion.Euler(0f, 0f, rotationSpeed * Time.fixedDeltaTime);
-        }
-        else
-        {
-            transform.rotation = Quaternion.Euler(0f, 0f, -rotationSpeed * Time.fixedDeltaTime);
-        }
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
 
         // Update camera position to follow the player
         if (mainCamera != null)
             mainCamera.transform.position = new Vector3(transform.position.x, mainCamera.transform.position.y, mainCamera.transform.position.z);
-    }
 
-    private void Update()
-    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Add a jump force to the Rigidbody2D component
-            rb.AddForce(new Vector2(0f, jump), ForceMode2D.Impulse);
+            rb.velocity = new Vector2(rb.velocity.x, jump);
 
-            // Trigger the jump annimation
+            // Trigger the jump animation
             animator.SetTrigger("Jump");
         }
-    }
-
-    public void ChangeThroughPortal(float newSpeed, bool isShipMode, float gravityScale)
-    {
-        // Update the player's speed
-        speed = newSpeed;
-
-        // Update the player's gamemode or sprite
-        // Implement your logic here based on the isShipMode value
-
-        // Update the gravity scale
-        rb.gravityScale = gravityScale;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Check if the collision is with an object tagged
-        if (collision.gameObject.CompareTag("Spike")){
+        if (collision.gameObject.CompareTag("Spike"))
+        {
             // Restart the game
             RestartGame();
         }
