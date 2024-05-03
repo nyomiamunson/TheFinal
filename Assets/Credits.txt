@@ -8,21 +8,22 @@ Background
 https://www.deviantart.com/greaterhtrae/art/Geometry-Dash-Background-Free-to-use-995590814
 greaterhtrae
 
-Boing sound
------------
-https://freesound.org/people/Hajisounds/sounds/614749/
-By Hajisounds
+Pusab Font
+----------------
+https://fontmeme.com/fonts/pusab-font/
+Flat-It
 
-Background sound
------------
-Source Unknown
+Obstacles
+----------------
+https://www.spriters-resource.com/mobile/geometrydashworld/sheet/89520/
+ItsCesar24
 
-Background
------------
-https://dribbble.com/shots/12294406-Super-Mario-Background
-By Tim Hykes
+Portal
+----------------
+https://www.spriters-resource.com/pc_computer/geometrydash/sheet/214888/
+OceanFlurry
 
-Paddles
------------
-https://wiki.mfgg.net/index.php?title=Mario_Pong
-By RetroMarioFan1985
+Icon
+----------------
+https://www.spriters-resource.com/mobile/geometrydashworld/sheet/89525/
+ItzPloxYT
